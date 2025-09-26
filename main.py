@@ -8,7 +8,7 @@ sys.path.insert(0, PROJECT_ROOT)
 # --- Imports ---
 # Import the functions directly from their respective modules
 from services.db_ops.database_setup import initialize_database
-from services.db_ops.populate_master_data import populate_phase_table
+from services.db_ops.populate_master_data import populate_all_master_data
 from tests.db_tests.db_test import get_table_as_dataframe
 
 def main():
@@ -21,14 +21,14 @@ def main():
     #initialize_database()
     
     # Step 2: Populate master data tables (adds initial rows)
-    #populate_phase_table()
+    #populate_all_master_data()
     
-    # Step 3: Fetch and display data from a table as a DataFrame
+    #Step 3: Fetch and display data from a table as a DataFrame
     print("\n--- Retrieving Data ---")
-    phase_df = get_table_as_dataframe("PHASE")
+    phase_df = get_table_as_dataframe("discipline")
     
     if phase_df is not None:
-        print("\nContents of 'PHASE' table:")
+        print("\nContents of 'discipline' table:")
         print(phase_df)
     
     print("\n--- EPPR App finished. ---")
